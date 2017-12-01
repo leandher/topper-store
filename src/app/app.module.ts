@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { UsuarioModule } from './usuario/usuario.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     HttpModule,
     routing,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UsuarioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

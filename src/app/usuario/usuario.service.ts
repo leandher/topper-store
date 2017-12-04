@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class UsuarioService {
 
   http: HttpClient;
-  url: string = 'localhost:8080/'
+  url: string = 'localhost:8080/api/'
 
   constructor(http: HttpClient) {
     this.http = http;
@@ -16,5 +16,10 @@ export class UsuarioService {
   lista(): Observable<UsuarioComponent[]> {
     return this.http.get(this.url)
       .map(res => res.json());
+  }
+
+  login(usuario: UsuarioComponent): Observable<UsuarioComponent> {
+    return this.http.post(this.url + "login", JSON.stringify(usuario))
+    .map(res => res.json());
   }
 }

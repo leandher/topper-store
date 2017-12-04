@@ -8,7 +8,7 @@ export class HttpClient {
 
   createAuthorizationHeader(headers: Headers) {
     headers.append('Authorization', 'Basic ' +
-      btoa('username:password')); 
+      btoa('cbd942d3-e33d-4163-84ab-d37f26e91d9c')); 
     headers.append('Content-Type', 'application/json');
   }
 

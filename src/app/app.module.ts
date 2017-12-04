@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UsuarioModule } from './usuario/usuario.module';
+import { HttpClient } from './http-client';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { UsuarioModule } from './usuario/usuario.module';
     ReactiveFormsModule,
     UsuarioModule
   ],
-  providers: [],
+  providers: [ HttpClient ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

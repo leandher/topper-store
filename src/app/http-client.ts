@@ -1,30 +1,17 @@
-import {Injectable} from '@angular/core';
-import {Http, Headers} from '@angular/http';
+import {
+  HttpEvent,
+  HttpInterceptor,
+  HttpHandler,
+  HttpRequest,
+} from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
-@Injectable()
-export class HttpClient {
+export class HttpClient implements HttpInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    // Clone the request to add the new header
+    const clonedRequest = req.clone({ headers: req.headers.set('Authorization', 'Basic cbd942d3-e33d-4163-84ab-d37f26e91d9c') });
 
-  constructor(private http: Http) {}
-
-  createAuthorizationHeader(headers: Headers) {
-    headers.append('Authorization', 'Basic ' +
-      btoa('cbd942d3-e33d-4163-84ab-d37f26e91d9c')); 
-    headers.append('Content-Type', 'application/json');
-  }
-
-  get(url) {
-    let headers = new Headers();
-    this.createAuthorizationHeader(headers);
-    return this.http.get(url, {
-      headers: headers
-    });
-  }
-
-  post(url, data) {
-    let headers = new Headers();
-    this.createAuthorizationHeader(headers);
-    return this.http.post(url, data, {
-      headers: headers
-    });
+    // Pass the cloned request instead of the original request to the next handle
+    return next.handle(clonedRequest);
   }
 }

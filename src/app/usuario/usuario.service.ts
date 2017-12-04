@@ -1,20 +1,20 @@
 import { UsuarioComponent } from './usuario.component';
-import { HttpClient } from '../http-client';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UsuarioService {
 
-  http: HttpClient;
-  url: string = 'localhost:8080/api/'
+  http: Http;
+  url: String = 'http://localhost:8080/api/';
 
-  constructor(http: HttpClient) {
+  constructor(http: Http) {
     this.http = http;
   }
 
   lista(): Observable<UsuarioComponent[]> {
-    return this.http.get(this.url)
+    return this.http.get(this.url + "usuarios")
       .map(res => res.json());
   }
 

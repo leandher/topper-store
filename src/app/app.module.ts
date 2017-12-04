@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { routing } from './app.routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +26,11 @@ import { HttpClient } from './http-client';
     ReactiveFormsModule,
     UsuarioModule
   ],
-  providers: [ HttpClient ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpClient,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

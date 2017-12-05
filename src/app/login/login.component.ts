@@ -22,7 +22,13 @@ export class LoginComponent implements OnInit {
     console.log(this.user);
     this.service.login(this.user)
     .subscribe(res => {
-      console.log(res);
+      this.user = res;
+
+      if(this.user.userRole == 'ADMIN'){
+        console.log("Go to dashboard component");
+      } else if(this.user.userRole == 'USER'){
+        console.log("Go to home component");
+      }
     }, err => console.log(err));
   }
 }

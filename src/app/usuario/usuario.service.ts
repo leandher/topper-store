@@ -1,5 +1,5 @@
 import { UsuarioComponent } from './usuario.component';
-import { Http } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
@@ -7,19 +7,30 @@ import { Injectable } from '@angular/core';
 export class UsuarioService {
 
   http: Http;
-  url: String = 'http://localhost:8080/api/';
+  headers: Headers;
+  url: string = 'api/usuarios';
 
   constructor(http: Http) {
     this.http = http;
+    this.headers = new Headers();
+    this.headers.append('Content-Type', 'application/json; charset=UTF-8');
+    //this.headers.append('Authorization', 'Basic cbd942d3-e33d-4163-84ab-d37f26e91d9c');
   }
 
   lista(): Observable<UsuarioComponent[]> {
-    return this.http.get(this.url + "usuarios")
-      .map(res => res.json());
+    return this.http.get(this.url + "/")
+      .map((res: Response) => res.json().data);
   }
 
   login(usuario: UsuarioComponent): Observable<UsuarioComponent> {
-    return this.http.post(this.url + "login", JSON.stringify(usuario))
+    return this.http
+    .post(this.url + '/login', usuario, { headers: this.headers })
     .map(res => res.json());
+  }
+
+  cadastrar(usuario: UsuarioComponent): Observable<Response> {
+    return this.http
+    .post(this.url + '/', usuario, { headers: this.headers })
+    .map(res => res);
   }
 }

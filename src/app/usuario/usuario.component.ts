@@ -7,10 +7,11 @@ import { Component} from '@angular/core';
 })
 export class UsuarioComponent {
   id: Number;
-  name: String;
-  password: String;
-  cpf: String;
-  email: String;
+  name: string;
+  password: string;
+  cpf: string;
+  email: string;
+  userRole: string;
   endereco = {
     rua: String,
     numero: String,

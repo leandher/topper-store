@@ -28,11 +28,7 @@ import { ProdutoComponent } from './produto/produto.component';
     ReactiveFormsModule,
     UsuarioModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: HttpClient,
-    multi: true,
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

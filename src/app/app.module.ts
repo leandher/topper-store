@@ -10,13 +10,15 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UsuarioModule } from './usuario/usuario.module';
 import { HttpClient } from './http-client';
+import { ProdutoComponent } from './produto/produto.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    ProdutoComponent
   ],
   imports: [
     BrowserModule,

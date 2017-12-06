@@ -11,6 +11,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { UsuarioModule } from './usuario/usuario.module';
 import { HttpClient } from './http-client';
 import { ProdutoComponent } from './produto/produto.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { ProdutoComponent } from './produto/produto.component';
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    DashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

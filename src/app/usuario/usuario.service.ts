@@ -14,7 +14,7 @@ export class UsuarioService {
     this.http = http;
     this.headers = new Headers();
     this.headers.append('Content-Type', 'application/json; charset=UTF-8');
-    //this.headers.append('Authorization', 'Basic cbd942d3-e33d-4163-84ab-d37f26e91d9c');
+    this.headers.append('Authorization', 'Basic cbd942d3-e33d-4163-84ab-d37f26e91d9c');
   }
 
   lista(): Observable<UsuarioComponent[]> {

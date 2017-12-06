@@ -4,13 +4,11 @@ class Carrinho {
     private static instance: Carrinho;
     private itens: ProdutoComponent[];
 
-    private constructor() {
-        // do something construct...
-    }
+    private constructor() {}
+    
     static getInstance() {
         if (!Carrinho.instance) {
             Carrinho.instance = new Carrinho();
-            // ... any one time initialization goes here ...
         }
         return Carrinho.instance;
     }

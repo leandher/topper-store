@@ -2,7 +2,6 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarRightMenuComponent } from './navbar-right-menu/navbar-right-menu.component';
-import { UserMenuComponent } from './user-menu/user-menu.component';
 import { AccountMenuComponent } from './account-menu/account-menu.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainSidebarComponent } from './main-sidebar/main-sidebar.component';
@@ -15,9 +14,8 @@ import { SidebarMenuComponent } from './sidebar-menu-admin/sidebar-menu.componen
     CommonModule,
     RouterModule
   ],
-  declarations: [SidebarMenuComponent, SidebarMenuClientComponent, NavbarRightMenuComponent,
-    UserMenuComponent, AccountMenuComponent, MainHeaderComponent, MainSidebarComponent,
-    MainFooterComponent, SidebarMenuClientComponent],
+  declarations: [SidebarMenuComponent, SidebarMenuClientComponent, NavbarRightMenuComponent, AccountMenuComponent,
+    MainHeaderComponent, MainSidebarComponent, MainFooterComponent, SidebarMenuClientComponent],
   exports: [SidebarMenuComponent, SidebarMenuClientComponent, NavbarRightMenuComponent,
     MainHeaderComponent, MainSidebarComponent, MainFooterComponent],
   providers: []

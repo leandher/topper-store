@@ -38,7 +38,7 @@ import { HomePainelComponent } from './home/home-painel/home-painel.component';
     UsuarioModule,
     SharedModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

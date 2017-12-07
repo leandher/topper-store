@@ -9,8 +9,8 @@ import { Observable } from 'rxjs/Observable';
 export class HttpClient implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     
-    const clonedRequest = req.clone({ headers: req.headers.set('Authorization', 'Basic cbd942d3-e33d-4163-84ab-d37f26e91d9c') });
+    req = req.clone({ headers: req.headers.set('Authorization', 'Basic cbd942d3-e33d-4163-84ab-d37f26e91d9c') });
 
-    return next.handle(clonedRequest);
+    return next.handle(req);
   }
 }

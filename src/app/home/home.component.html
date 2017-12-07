@@ -1,3 +1,24 @@
-<p>
-  home works!
-</p>
+<div class="wrapper">
+  <!-- Main Header -->
+  <app-main-header></app-main-header>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <app-sidebar-menu-client></app-sidebar-menu-client>
+    </section>
+  </aside>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!--The content below is only a placeholder and can be replaced.-->
+    <router-outlet></router-outlet>
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <app-main-footer></app-main-footer>
+
+  <!-- Control Sidebar -->
+  <!--app-control-sidebar></app-control-sidebar-->
+</div>
+<!-- ./wrapper -->

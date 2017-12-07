@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home']);
         }
       }, err => {
-        if(err.status == 401){
+        if(err.status == 401 || err.status == 400){
           this.mensagem = "Login ou senha incorretos!";
           setInterval(() => {
             this.mensagem = "";

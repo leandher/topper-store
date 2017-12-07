@@ -13,6 +13,9 @@ import { HttpClient } from './http-client';
 import { ProdutoComponent } from './produto/produto.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { SharedModule } from './shared/shared.module';
+import { DashboardPainelComponent } from './dashboard/dashboard-painel/dashboard-painel.component';
+import { HomePainelComponent } from './home/home-painel/home-painel.component';
 
 
 @NgModule({
@@ -22,7 +25,9 @@ import { HomeComponent } from './home/home.component';
     SignUpComponent,
     ProdutoComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardPainelComponent,
+    HomePainelComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,8 @@ import { HomeComponent } from './home/home.component';
     routing,
     FormsModule,
     ReactiveFormsModule,
-    UsuarioModule
+    UsuarioModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

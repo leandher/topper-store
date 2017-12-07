@@ -1,3 +1,18 @@
-<p>
-  dashboard works!
-</p>
+<div class="wrapper">
+  <!-- Main Header -->
+  <app-main-header></app-main-header>
+
+  <!-- Left side column. contains the logo and sidebar -->
+  <app-main-sidebar></app-main-sidebar>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+      <!--The content below is only a placeholder and can be replaced.-->
+      <router-outlet></router-outlet>
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <app-main-footer></app-main-footer>
+</div>
+<!-- ./wrapper -->

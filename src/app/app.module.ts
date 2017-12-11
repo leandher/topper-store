@@ -11,11 +11,13 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { UsuarioModule } from './usuario/usuario.module';
 import { HttpClient } from './http-client';
 import { ProdutoComponent } from './produto/produto.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
-import { DashboardPainelComponent } from './dashboard/dashboard-painel/dashboard-painel.component';
-import { HomePainelComponent } from './home/home-painel/home-painel.component';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { HomeModule } from './home/home.module';
+import * as moment from 'moment'; 
+import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 
 @NgModule({
@@ -25,9 +27,7 @@ import { HomePainelComponent } from './home/home-painel/home-painel.component';
     SignUpComponent,
     ProdutoComponent,
     DashboardComponent,
-    HomeComponent,
-    DashboardPainelComponent,
-    HomePainelComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +36,9 @@ import { HomePainelComponent } from './home/home-painel/home-painel.component';
     FormsModule,
     ReactiveFormsModule,
     UsuarioModule,
-    SharedModule
+    SharedModule,
+    DashboardModule,
+    HomeModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

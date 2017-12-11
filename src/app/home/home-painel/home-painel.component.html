@@ -1,3 +1,48 @@
-<p>
-  home-painel works!
-</p>
+<app-content-header title="Home" description="" icon="fa-dash" item="Home" active="home"></app-content-header>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Últimos Pedidos</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body">
+          <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+            <div class="row">
+              <div class="col-sm-12">
+                <table id="example2" class="table table-bordered table-hover dataTable" role="grid">
+                  <thead>
+                    <tr role="row">
+                      <th>#</th>
+                      <th>Data</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr role="row" class="even" *ngFor="let row of pedidos">
+                      <td>{{row.numero}}</td>
+                      <td>{{row.data | date: 'dd/MM/yyyy'}}</td>
+                      <td>{{row.status}}</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+    </div>
+  </div>
+</section>

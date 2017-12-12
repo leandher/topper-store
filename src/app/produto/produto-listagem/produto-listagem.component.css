@@ -12,3 +12,11 @@
 
     transition: all 1s;
 }
+
+.btn {
+    opacity: 0;
+}
+
+.btn:hover {
+    opacity: 1;
+}

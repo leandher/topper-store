@@ -13,6 +13,7 @@ export class ProdutoListagemComponent implements OnInit {
 
   produtos: ProdutoComponent[] = [];
   itemMenu: string = "";
+  isAdmin: Boolean = false;
   constructor(private service: ProdutoService) { }
 
   ngOnInit() {
@@ -25,11 +26,31 @@ export class ProdutoListagemComponent implements OnInit {
     switch (Cookie.get('idRole')) {
       case "USER":
         this.itemMenu = 'Home';
+        this.isAdmin = false;
         break;
       case "ADMIN":
         this.itemMenu = 'Dashboard';
+        this.isAdmin = true;
         break;
     }
   }
 
+  onClick(){
+    switch (Cookie.get('idRole')) {
+      case "USER":
+        //Do nothing
+        break;
+      case "ADMIN":
+        //Go to Edit
+        break;
+    }
+  }
+
+  remover(produto: ProdutoComponent){
+
+  }
+
+  adicionar(produto: ProdutoComponent){
+    
+  }
 }

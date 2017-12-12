@@ -2,14 +2,19 @@
 
 <section class="content">
   <div class="row">
-    <div class="panel panel-default efeito-painel col-md-2" *ngFor="let produto of produtos">
+    <div class="panel panel-default efeito-painel col-md-2" style="margin-right: 5px;" *ngFor="let produto of produtos">
       <div class="panel-heading">
         <h3 class="panel-title text-center">{{produto.nome | uppercase}}</h3>
       </div>
       <div class="panel-body">
-        <a routerLink="['produtos/cadastro', produto.idProduto]">
+        <a (click)="onClick()">
           <img class="img-responsive center-block efeito" [src]="produto.foto" [alt]="produto.nome">
         </a>
+        <button (click)="remover(produto)" class="btn btn-danger btn-block" *ngIf="isAdmin">Remover</button>
+        <button (click)="adicionar(produto)" class="btn btn-info btn-block" *ngIf="!isAdmin">
+          <i class="fa fa-cart-plus"></i>
+          Adicionar
+        </button>
       </div>
     </div>
   </div>

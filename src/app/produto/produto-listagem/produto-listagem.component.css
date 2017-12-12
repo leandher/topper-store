@@ -1,0 +1,14 @@
+.efeito-painel {
+    box-shadow: 2px 2px 15px;
+}
+
+.efeito:hover {
+    
+    transition: all 0.5s;
+    transform: scale(1.15);
+}
+
+.efeito {
+
+    transition: all 1s;
+}

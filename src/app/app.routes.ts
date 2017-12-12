@@ -6,17 +6,20 @@ import { HomeComponent } from './home/home.component';
 import { DashboardPainelComponent } from './dashboard/dashboard-painel/dashboard-painel.component';
 import { HomePainelComponent } from './home/home-painel/home-painel.component';
 import { ProfileComponent } from './usuario/profile/profile.component';
+import { ProdutoCadastroComponent } from './produto/produto-cadastro/produto-cadastro.component';
+import { ProdutoListagemComponent } from './produto/produto-listagem/produto-listagem.component';
 
 const appRoutes: Routes = [
 
     { path: 'login', component: LoginComponent },
     { path: 'cadastrar', component: SignUpComponent },
-    //{path: 'cadastro/:id', component: CadastroComponent},
     {
         path: 'dashboard',
         component: DashboardComponent,
         children: [
             { path: '', component: DashboardPainelComponent },
+            { path: 'produtos', component: ProdutoListagemComponent },
+            { path: 'produtos/cadastro/:id', component: ProdutoCadastroComponent },
             { path: '**', redirectTo: '', pathMatch: 'full' }
         ]
     },
@@ -26,6 +29,7 @@ const appRoutes: Routes = [
         children: [
             { path: '', component: HomePainelComponent },
             { path: 'profile', component: ProfileComponent },
+            { path: 'produtos', component: ProdutoListagemComponent },
             { path: '**', redirectTo: '', pathMatch: 'full' }
         ]
     },

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioComponent } from '../usuario/usuario.component';
 import { UsuarioService } from '../usuario/usuario.service';
 import { Router } from '@angular/router';
+import { Cookie } from 'ng2-cookies';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
     this.service.login(this.user)
       .subscribe(res => {
         this.user = res;
-
+        Cookie.set('idUser', this.user.idUsuario.toString());
+        Cookie.set('idRole', this.user.userRole.toString());
         if (this.user.userRole == 'ADMIN') {
           this.router.navigate(['/dashboard']);
         } else if (this.user.userRole == 'USER') {

@@ -10,14 +10,13 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UsuarioModule } from './usuario/usuario.module';
 import { HttpClient } from './http-client';
-import { ProdutoComponent } from './produto/produto.component';
 import { SharedModule } from './shared/shared.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HomeModule } from './home/home.module';
 import * as moment from 'moment'; 
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { ProdutoModule } from './produto/produto.module';
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    ProdutoComponent,
     DashboardComponent,
     HomeComponent
   ],
@@ -38,7 +36,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     UsuarioModule,
     SharedModule,
     DashboardModule,
-    HomeModule
+    HomeModule,
+    ProdutoModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

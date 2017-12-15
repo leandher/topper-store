@@ -1,6 +1,6 @@
 <app-content-header title="Produtos" description="" icon="fa-dash" item="{{itemMenu}}" active="produtos"></app-content-header>
 <p *ngIf="mensagem.length" class="alert alert-info">{{mensagem}}</p>
-<a id="btn-fblogin" (click)="cadastro()" class="btn btn-primary"><i class="fa fa-plus-circle"></i>
+<a id="btn-fblogin" (click)="cadastro()" class="btn btn-primary"  *ngIf="isAdmin"><i class="fa fa-plus-circle"></i>
   ADICIONAR PRODUTO</a>
 <section class="content">
   <div class="row">

@@ -21,6 +21,7 @@ export class Carrinho {
         let idProduto = this.itens.findIndex(i => i.idProduto === produto.idProduto);
         if(idProduto == -1){
             produto.quantidade = 1;
+            produto.valorTotal = produto.valor;
             this.itens.push(produto);
         } else{
             this.itens[idProduto].quantidade++;

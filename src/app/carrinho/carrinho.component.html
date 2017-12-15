@@ -15,7 +15,7 @@
           <tr role="row" class="even" *ngFor="let row of items">
             <td>{{row.nome}}</td>
             <td>{{row.categoria}}</td>
-            <td>{{row.valor | currency: 'R$ '}}</td>
+            <td>{{row.valorTotal | currency: 'R$ '}}</td>
             <td>{{row.quantidade}}</td>
           </tr>
         </tbody>

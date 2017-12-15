@@ -23,7 +23,13 @@ export class ProdutoService {
 
   cadastrar(produto: ProdutoComponent): Observable<Response> {
     return this.http
-    .post(this.url + '/', produto, { headers: this.headers })
-    .map(res => res);
+      .post(this.url + '/', produto, { headers: this.headers })
+      .map(res => res);
+  }
+
+  salvarPedido(pedido: any): Observable<Response> {
+    return this.http
+      .post('api/pedidos' + '/', pedido, { headers: this.headers })
+      .map(res => res);
   }
 }

@@ -19,7 +19,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProdutoModule } from './produto/produto.module';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

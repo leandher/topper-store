@@ -9,6 +9,7 @@
             <th>Categoria</th>
             <th>Valor</th>
             <th>Quantidade</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -17,10 +18,14 @@
             <td>{{row.categoria}}</td>
             <td>{{row.valorTotal | currency: 'R$ '}}</td>
             <td>{{row.quantidade}}</td>
+            <td><a><i class="fa fa-trash"></i></a></td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
+            <a id="btn-fblogin" (click)="finalizarPedido()" class="btn btn-primary btn-success">
+              <i class="fa fa-plus-circle"></i>
+              Finalizar pedido</a>
           </tr>
         </tfoot>
       </table>

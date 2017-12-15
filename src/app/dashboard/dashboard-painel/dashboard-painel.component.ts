@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import {DashboardService} from '../dashboard.service'
 
 @Component({
   selector: 'app-dashboard-painel',
@@ -7,6 +8,8 @@ import * as moment from 'moment';
   styleUrls: ['./dashboard-painel.component.css']
 })
 export class DashboardPainelComponent implements OnInit {
+  
+
   barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -16,7 +19,7 @@ export class DashboardPainelComponent implements OnInit {
   barChartLegend: boolean = true;
 
   barChartData: any[] = [
-    { data: [65, 59, 80, 81, 56, 55, 47, 80, 81, 56, 55, 47], label: 'Vendas' }
+    { data: [], label: 'Vendas' }
 
   ];
 
@@ -31,15 +34,28 @@ export class DashboardPainelComponent implements OnInit {
     }
   ]
 
-  constructor() {
-    for (let index = 0; index < 12; index++) {
-      let date = moment().subtract('months', 11);
-      date.add('month', index);
-      this.barChartLabels.push(date.format('MM/YY'))
-    }
+  constructor(private service:DashboardService) {
+      
   }
 
   ngOnInit() {
+    this.service.listaVendaMensal().subscribe(itens => {
+      console.log(itens)
+    }, err => {
+      console.log(err);
+    });
+
+     this.service.listaVendaPorCategoria().subscribe(itens => {
+      console.log(itens)
+    }, err => {
+      console.log(err);
+    });
+
+     this.service.listaVendaProduto().subscribe(itens => {
+      console.log(itens)
+    }, err => {
+      console.log(err);
+    });
   }
 
   // events 

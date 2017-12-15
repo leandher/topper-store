@@ -16,7 +16,7 @@ export class CarrinhoComponent implements OnInit {
   carrinho: Carrinho = Carrinho.getInstance();
   items: ProdutoComponent[] = this.carrinho.getItens();
   pedido: any;
-  
+
   constructor(private service: ProdutoService) { }
 
   ngOnInit() {
@@ -24,19 +24,34 @@ export class CarrinhoComponent implements OnInit {
     console.log(this.carrinho.itens);
   }
 
-  finalizarPedido(){
-    let user: UsuarioComponent = new UsuarioComponent;
+  finalizarPedido() {
+    if (confirm('Você deseja finalizar o pedido?')) {
+      let itens: any[] = [];
 
-    user.idUsuario = Number(Cookie.get('idUser'));
+      this.items.forEach(item => {
+        let i = {
+          produto: item,
+          quantidade: item.quantidade,
+          valorTotal: item.valorTotal
+        };
 
-    this.pedido = {
-      data: moment(),
-      usuario: user
-    };
-    this.service.salvarPedido(this.pedido).subscribe(res => {
-      console.log('Deu bom!');
-    }, err => {
-      console.log('Deu ruim!');
-    });
+        itens.push(i);
+      });
+
+      this.pedido = {
+        data: moment(),
+        usuario: {
+          idUsuario: Number(Cookie.get('idUser'))
+        },
+        status: 'ENVIADO',
+        itens: itens
+      };
+      console.log(this.pedido);
+      this.service.salvarPedido(this.pedido).subscribe(res => {
+        console.log('Deu bom!');
+      }, err => {
+        console.log('Deu ruim!');
+      });
+    }
   }
 }

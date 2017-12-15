@@ -31,7 +31,7 @@ export class CarrinhoComponent implements OnInit {
 
     this.pedido = {
       data: moment(),
-      usuario: 
+      usuario: user
     };
     this.service.salvarPedido(this.pedido).subscribe(res => {
       console.log('Deu bom!');

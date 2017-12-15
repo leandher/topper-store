@@ -8,6 +8,7 @@ import { HomePainelComponent } from './home/home-painel/home-painel.component';
 import { ProfileComponent } from './usuario/profile/profile.component';
 import { ProdutoCadastroComponent } from './produto/produto-cadastro/produto-cadastro.component';
 import { ProdutoListagemComponent } from './produto/produto-listagem/produto-listagem.component';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 const appRoutes: Routes = [
 
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
             { path: '', component: HomePainelComponent },
             { path: 'profile', component: ProfileComponent },
             { path: 'produtos', component: ProdutoListagemComponent },
+            { path: 'carrinho', component: CarrinhoComponent },
             { path: '**', redirectTo: '', pathMatch: 'full' }
         ]
     },

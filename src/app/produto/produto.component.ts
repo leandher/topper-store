@@ -6,13 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./produto.component.css']
 })
 export class ProdutoComponent implements OnInit {
-  idProduto: Number;
+  idProduto: number;
   nome: string;
   descricao: string;
-  valor: Number;
-  estoque: Number;
+  valor: number;
+  estoque: number;
   categoria: string;
   foto: string;
+  quantidade: number;
+  valorTotal: number;
 
   constructor() { }
 

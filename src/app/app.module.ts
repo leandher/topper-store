@@ -17,6 +17,7 @@ import * as moment from 'moment';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProdutoModule } from './produto/produto.module';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ProdutoModule } from './produto/produto.module';
     LoginComponent,
     SignUpComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    CarrinhoComponent
   ],
   imports: [
     BrowserModule,

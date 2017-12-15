@@ -2,7 +2,7 @@ import { ProdutoComponent } from "../produto/produto.component";
 
 export class Carrinho {
     private static instance: Carrinho;
-    private itens: ProdutoComponent[] = [];
+    itens: ProdutoComponent[] = [];
 
     private constructor() {}
     
@@ -18,8 +18,15 @@ export class Carrinho {
      }
 
     addItem(produto: ProdutoComponent){
+        let idProduto = this.itens.findIndex(i => i.idProduto === produto.idProduto);
+        if(idProduto == -1){
+            produto.quantidade = 1;
+            this.itens.push(produto);
+        } else{
+            this.itens[idProduto].quantidade++;
+            this.itens[idProduto].valorTotal = this.itens[idProduto].valor*this.itens[idProduto].quantidade++;
+        }
         console.log(this.itens);
-        this.itens.push(produto);
     }
 
     removeItem(produto: ProdutoComponent){

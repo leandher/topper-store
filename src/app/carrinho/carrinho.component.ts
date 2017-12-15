@@ -26,20 +26,27 @@ export class CarrinhoComponent implements OnInit {
 
   finalizarPedido() {
     if (confirm('Você deseja finalizar o pedido?')) {
-      let user: UsuarioComponent = new UsuarioComponent;
-
-      user.idUsuario = Number(Cookie.get('idUser'));
-
       let itens: any[] = [];
 
+      this.items.forEach(item => {
+        let i = {
+          produto: item,
+          quantidade: item.quantidade,
+          valorTotal: item.valorTotal
+        };
 
+        itens.push(i);
+      });
 
       this.pedido = {
         data: moment(),
-        usuario: user,
+        usuario: {
+          idUsuario: Number(Cookie.get('idUser'))
+        },
         status: 'ENVIADO',
-        itens: []
+        itens: itens
       };
+      console.log(this.pedido);
       this.service.salvarPedido(this.pedido).subscribe(res => {
         console.log('Deu bom!');
       }, err => {

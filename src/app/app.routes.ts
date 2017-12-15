@@ -18,8 +18,9 @@ const appRoutes: Routes = [
         component: DashboardComponent,
         children: [
             { path: '', component: DashboardPainelComponent },
-            { path: 'produtos', component: ProdutoListagemComponent },
+            { path: 'produtos', component: ProdutoListagemComponent, children: [] },
             { path: 'produtos/cadastro/:id', component: ProdutoCadastroComponent },
+            { path: 'produtos/cadastro', component: ProdutoCadastroComponent },
             { path: '**', redirectTo: '', pathMatch: 'full' }
         ]
     },

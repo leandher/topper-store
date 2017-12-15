@@ -51,7 +51,7 @@ export class ProdutoListagemComponent implements OnInit {
   }
 
   remover(produto: ProdutoComponent){
-
+    this.carrinho.removeItem(produto);
   }
 
   adicionar(produto: ProdutoComponent){
@@ -65,4 +65,7 @@ export class ProdutoListagemComponent implements OnInit {
   cadastro(){
     this.router.navigate(['dashboard/produtos/cadastro']);
   }
+ /*  alterar(id){
+    this.router.navigate(['dashboard/produtos/{{id}}']);
+  } */
 }

@@ -12,7 +12,7 @@ export class ProdutoCadastroComponent implements OnInit {
   produto: ProdutoComponent = new ProdutoComponent;
   mensagem: string = "";
   style: string = "";
-  constructor(private service: ProdutoService, private router: ActivatedRoute) { }
+  constructor(private service: ProdutoService, private router: ActivatedRoute, private routers: Router) { }
 
   ngOnInit() {
   }
@@ -24,9 +24,10 @@ export class ProdutoCadastroComponent implements OnInit {
       this.style = 'success';
       setInterval(() => {
         this.mensagem = "";
+        this.routers.navigate(['/produtos']);
       }, 1000 * 3);
     }, err => {
-      this.mensagem = "E-mail e/ou CPF já cadastrados!";
+      this.mensagem = "Erro ao salvar!";
       this.style = 'danger';
       setInterval(() => {
         this.mensagem = "";

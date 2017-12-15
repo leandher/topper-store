@@ -1,16 +1,16 @@
 import { ProdutoComponent } from "../produto/produto.component";
 
-class Carrinho {
+export class Carrinho {
     private static instance: Carrinho;
-    private itens: ProdutoComponent[];
+    private itens: ProdutoComponent[] = [];
 
     private constructor() {}
     
     static getInstance() {
-        if (!Carrinho.instance) {
-            Carrinho.instance = new Carrinho();
+        if (!this.instance) {
+            this.instance = new Carrinho();
         }
-        return Carrinho.instance;
+        return this.instance;
     }
 
     getItens(): ProdutoComponent[] {
@@ -18,10 +18,11 @@ class Carrinho {
      }
 
     addItem(produto: ProdutoComponent){
+        console.log(this.itens);
         this.itens.push(produto);
     }
 
     removeItem(produto: ProdutoComponent){
-        
+        this.itens.splice(1, this.itens.indexOf(produto));
     }
 }

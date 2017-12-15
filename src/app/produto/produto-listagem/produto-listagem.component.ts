@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../produto.service';
 import { ProdutoComponent } from '../produto.component';
 import { Cookie } from 'ng2-cookies';
+import { Carrinho } from "../../carrinho/carrinho";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +16,9 @@ export class ProdutoListagemComponent implements OnInit {
   produtos: ProdutoComponent[] = [];
   itemMenu: string = "";
   isAdmin: Boolean = false;
-  constructor(private service: ProdutoService) { }
+  carrinho: Carrinho = Carrinho.getInstance();
+  mensagem: string = "";
+  constructor(private service: ProdutoService, private router: Router) { }
 
   ngOnInit() {
     this.service.lista().subscribe(produtos => {
@@ -51,6 +55,14 @@ export class ProdutoListagemComponent implements OnInit {
   }
 
   adicionar(produto: ProdutoComponent){
-    
+    this.carrinho.addItem(produto);
+    this.mensagem = "Produto adicionado no carrinho!";
+    setInterval(() => {
+      this.mensagem = "";
+    }, 1000 * 5);
+  }
+
+  cadastro(){
+    this.router.navigate(['dashboard/produtos/cadastro']);
   }
 }

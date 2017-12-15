@@ -30,6 +30,7 @@
     "moment": "^2.19.3",
     "ng2-charts": "^1.6.0",
     "ng2-cookies": "^1.0.12",
+    "ng2-currency-mask": "^4.4.1",
     "rxjs": "^5.5.2",
     "systemjs": "^0.20.19",
     "zone.js": "^0.8.14"

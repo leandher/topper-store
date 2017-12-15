@@ -9,6 +9,12 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./produto-cadastro.component.css']
 })
 export class ProdutoCadastroComponent implements OnInit {
+  categorias = [
+    {id: 1, name: "CELULARES"},
+    {id: 2, name: "COMPUTADORES"},
+    {id: 3, name: "ACESSORIOS"},
+    {id: 4, name: "OUTROS"}
+  ];
   produto: ProdutoComponent = new ProdutoComponent;
   mensagem: string = "";
   style: string = "";

@@ -18,6 +18,7 @@ export class ProdutoCadastroComponent implements OnInit {
   produto: ProdutoComponent = new ProdutoComponent;
   mensagem: string = "";
   style: string = "";
+  selectedValue: any = {id: 0, name: ""};
   constructor(private service: ProdutoService, private router: ActivatedRoute, private routers: Router) { }
 
   ngOnInit() {
@@ -25,12 +26,14 @@ export class ProdutoCadastroComponent implements OnInit {
   cadastrar() {
     console.log(this.produto);
 
+    console.log(this.selectedValue);
+
     this.service.cadastrar(this.produto).subscribe(res => {
       this.mensagem = "Salvo com sucesso!";
       this.style = 'success';
       setInterval(() => {
         this.mensagem = "";
-        this.routers.navigate(['/produtos']);
+        this.routers.navigate(['dashboard/produtos']);
       }, 1000 * 3);
     }, err => {
       this.mensagem = "Erro ao salvar!";

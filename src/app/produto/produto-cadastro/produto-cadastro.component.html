@@ -41,7 +41,7 @@
             <label for="categoria" class="col-md-3 control-label">Categoria</label>
             <div class="col-md-9">
               <select [(ngModel)]="selectedValue">
-                <option name= "categoria" *ngFor="let c of categorias" [ngValue]="c.name" [selected]="c.id === c.id" [(ngModel)]="produto.categoria">{{c.name}}</option>
+                <option name= "categoria" *ngFor="let c of categorias" [ngValue]="c.name" [selected]="c.id === c.id">{{c.name}}</option>
               </select>
             </div>
           </div>
